@@ -895,7 +895,11 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
     }
 
     private get _isTypeahead() {
-        return this.typeahead && this.typeahead.observers.length > 0;
+        if(this.typeahead && this.typeahead.observers){
+            return this.typeahead.observers.length > 0;
+        }else{
+            return false;
+        }
     }
 
     private _mergeGlobalConfig(config: NgSelectConfig) {
